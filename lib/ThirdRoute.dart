@@ -1,3 +1,4 @@
+import 'package:eREQUEST/ForthRoute.dart';
 import 'package:flutter/material.dart';
 
 class ThirdRoute extends StatefulWidget {
@@ -263,11 +264,11 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                     borderRadius:
                                         new BorderRadius.circular(20.0)),
                                 onPressed: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) => Feedback()),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ForthRoute()),
+                                  );
                                 },
                               ),
                             ),
