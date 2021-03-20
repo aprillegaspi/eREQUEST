@@ -96,7 +96,7 @@ class HoP extends StatelessWidget {
                               children: <Widget>[
                                 Icon(
                                   Icons.check,
-                                  color: Color(0xFFb6a480),
+                                  color: Colors.black,
                                 ),
                                 Text(
                                   'Fill the form with your info, make sure you input your information correctly or else your request will be denied.',
@@ -130,7 +130,7 @@ class HoP extends StatelessWidget {
                               children: <Widget>[
                                 Icon(
                                   Icons.check,
-                                  color: Color(0xFFb6a480),
+                                  color: Colors.black,
                                 ),
                                 Text(
                                   'Select the correct transaction you want to request.',
@@ -164,7 +164,7 @@ class HoP extends StatelessWidget {
                               children: <Widget>[
                                 Icon(
                                   Icons.check,
-                                  color: Color(0xFFb6a480),
+                                  color: Colors.black,
                                 ),
                                 Text(
                                   'Make sure you have internet connection or mobile data in order for you to send the request',
@@ -198,7 +198,7 @@ class HoP extends StatelessWidget {
                               children: <Widget>[
                                 Icon(
                                   Icons.check,
-                                  color: Color(0xFFb6a480),
+                                  color: Colors.black,
                                 ),
                                 Text(
                                   'Wait for the confirmation message.',
@@ -232,7 +232,7 @@ class HoP extends StatelessWidget {
                               children: <Widget>[
                                 Icon(
                                   Icons.check,
-                                  color: Color(0xFFb6a480),
+                                  color: Colors.black,
                                 ),
                                 Text(
                                   'You will be notified what time and what day when your request is ready for pick-up',
