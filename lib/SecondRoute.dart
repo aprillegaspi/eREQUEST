@@ -1,3 +1,4 @@
+import 'package:eREQUEST/HoG.dart';
 import 'package:eREQUEST/ThirdRoute.dart';
 import 'package:eREQUEST/main.dart';
 import 'package:flutter/material.dart';
@@ -117,7 +118,12 @@ class SecondRoute extends StatelessWidget {
                         fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w400),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HoP()),
+                    );
+                  },
                 ),
               ],
             ),
