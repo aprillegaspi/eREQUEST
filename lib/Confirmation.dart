@@ -1,30 +1,26 @@
-import 'package:eREQUEST/ForthRoute.dart';
+import 'package:eREQUEST/main.dart';
 import 'package:flutter/material.dart';
 
-class ThirdRoute extends StatefulWidget {
+TextEditingController nameController = TextEditingController();
+TextEditingController ageController = TextEditingController();
+TextEditingController addressController = TextEditingController();
+TextEditingController contactController = TextEditingController();
+TextEditingController transactionController = TextEditingController();
+TextEditingController purposeController = TextEditingController();
+TextEditingController statusController = TextEditingController();
+TextEditingController reasonController = TextEditingController();
+
+class Confirmation extends StatefulWidget {
   @override
-  _ThirdRouteState createState() => _ThirdRouteState();
+  _ConfirmationState createState() => _ConfirmationState();
 }
 
-class _ThirdRouteState extends State<ThirdRoute> {
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController middleNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController ageController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController transactionController = TextEditingController();
-  TextEditingController purposeController = TextEditingController();
-  TextEditingController remarksController = TextEditingController();
-
+class _ConfirmationState extends State<Confirmation> {
   bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF6f634f),
-      ),
       body: Container(
         child: Stack(
           children: <Widget>[
@@ -37,8 +33,6 @@ class _ThirdRouteState extends State<ThirdRoute> {
                   stops: [0.0, 0.4, 0.9],
                   colors: [
                     Color(0xFF968266),
-                    //Color(0xFFb6a480),
-                    //Color(0xFFcfc493),
                   ],
                 ),
               ),
@@ -46,42 +40,42 @@ class _ThirdRouteState extends State<ThirdRoute> {
             ListView(
               padding: EdgeInsets.symmetric(horizontal: 40.0),
               children: <Widget>[
-                Image.asset(
-                  'assets/logo.png',
-                  height: 90.0,
-                ),
-                SizedBox(height: 30.0),
+                SizedBox(height: 200),
                 Text(
-                  'Fill the form below: ',
+                  'Confirmation Details',
                   style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontFamily: 'Schyler',
-                      fontWeight: FontWeight.w300),
+                    color: Colors.white,
+                    fontSize: 30.0,
+                    fontFamily: 'Schyler',
+                    fontWeight: FontWeight.w700,
+                  ),
+                  textAlign: TextAlign.center,
                 )
               ],
             ),
+
             Positioned(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    SizedBox(height: 50),
                     Card(
-                      elevation: 2.0,
+                      elevation: 4.0,
                       color: Color(0xFFcfc493),
                       margin: EdgeInsets.only(left: 20, right: 20),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
                       child: Padding(
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             // name
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
-                              controller: firstNameController,
+                              controller: nameController,
                               cursorColor: Color(0xFF9b9b9b),
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
@@ -89,50 +83,14 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                   Icons.account_circle,
                                   color: Color(0xFFb6a480),
                                 ),
-                                hintText: "Firstname",
+                                hintText: "Name",
                                 hintStyle: TextStyle(
                                     color: Color(0xFF6f7072),
                                     fontSize: 15,
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            //middlename
-                            TextField(
-                              style: TextStyle(color: Color(0xFF000000)),
-                              controller: middleNameController,
-                              cursorColor: Color(0xFF9b9b9b),
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.account_circle,
-                                  color: Color(0xFFb6a480),
-                                ),
-                                hintText: "Middlename",
-                                hintStyle: TextStyle(
-                                    color: Color(0xFF6f7072),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                            ),
-                            //Lastname
-                            TextField(
-                              style: TextStyle(color: Color(0xFF000000)),
-                              controller: lastNameController,
-                              cursorColor: Color(0xFF9b9b9b),
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.account_circle,
-                                  color: Color(0xFFb6a480),
-                                ),
-                                hintText: "Lastname",
-                                hintStyle: TextStyle(
-                                    color: Color(0xFF6f7072),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                            ),
-                            //Age
+                            // age
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
                               controller: ageController,
@@ -150,7 +108,8 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            //Address
+
+                            // Address
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
                               controller: addressController,
@@ -168,25 +127,27 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            //Contact
+
+                            // contact
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
-                              controller: phoneController,
+                              controller: contactController,
                               cursorColor: Color(0xFF9b9b9b),
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.mobile_screen_share,
+                                  Icons.phone_android,
                                   color: Color(0xFFb6a480),
                                 ),
-                                hintText: "Contact No",
+                                hintText: "Contact",
                                 hintStyle: TextStyle(
                                     color: Color(0xFF6f7072),
                                     fontSize: 15,
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            //Transaction
+
+                            // transaction type
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
                               controller: transactionController,
@@ -194,25 +155,26 @@ class _ThirdRouteState extends State<ThirdRoute> {
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.assignment_turned_in,
+                                  Icons.receipt,
                                   color: Color(0xFFb6a480),
                                 ),
-                                hintText: "Transaction",
+                                hintText: "Transaction Type",
                                 hintStyle: TextStyle(
                                     color: Color(0xFF6f7072),
                                     fontSize: 15,
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            //Purpose
+
+                            // purpose
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
-                              controller: purposeController,
+                              controller: transactionController,
                               cursorColor: Color(0xFF9b9b9b),
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.business,
+                                  Icons.work,
                                   color: Color(0xFFb6a480),
                                 ),
                                 hintText: "Purpose",
@@ -222,25 +184,46 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            //Remarks
+
+                            // Request status
                             TextField(
                               style: TextStyle(color: Color(0xFF000000)),
-                              controller: remarksController,
+                              controller: statusController,
                               cursorColor: Color(0xFF9b9b9b),
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.comment,
+                                  Icons.check_circle,
                                   color: Color(0xFFb6a480),
                                 ),
-                                hintText: "Remarks",
+                                hintText: "Request Status",
                                 hintStyle: TextStyle(
                                     color: Color(0xFF6f7072),
                                     fontSize: 15,
                                     fontWeight: FontWeight.normal),
                               ),
                             ),
-                            // submit Button
+
+                            //reason
+                            TextField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: reasonController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.receipt,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Reason",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            ),
+
+                            // back Button
                             Padding(
                               padding: EdgeInsets.all(2.0),
                               child: FlatButton(
@@ -267,7 +250,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => ForthRoute()),
+                                        builder: (context) => HomePage()),
                                   );
                                 },
                               ),
@@ -286,27 +269,3 @@ class _ThirdRouteState extends State<ThirdRoute> {
     );
   }
 }
-// Padding(
-//                               padding: EdgeInsets.all(2.0),
-//                               child: FlatButton(
-//                                   child: Padding(
-//                                     padding: EdgeInsets.only(
-//                                         top: 8, bottom: 8, left: 10, right: 10),
-//                                     child: Text(
-//                                       _isLoading ? 'Submitting...' : 'Submit',
-//                                       textDirection: TextDirection.ltr,
-//                                       style: TextStyle(
-//                                         color: Colors.white,
-//                                         fontSize: 15.0,
-//                                         decoration: TextDecoration.none,
-//                                         fontWeight: FontWeight.w500,
-//                                       ),
-//                                     ),
-//                                   ),
-//                                   color: Colors.blueAccent,
-//                                   disabledColor: Color(0xFF846f52),
-//                                   shape: new RoundedRectangleBorder(
-//                                       borderRadius:
-//                                           new BorderRadius.circular(20.0)),
-//                                   onPressed: _isLoading ? null : _handleSubmit),
-//                             ),

@@ -1,9 +1,12 @@
+import 'package:eREQUEST/HoG.dart';
+import 'package:eREQUEST/RequestStat.dart';
+import 'package:eREQUEST/Request.dart';
 import 'package:eREQUEST/main.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class ForthRoute extends StatelessWidget {
+class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,36 +50,23 @@ class ForthRoute extends StatelessWidget {
                 ),
                 SizedBox(height: 70.0),
                 Text(
-                  'THANK YOU FOR YOUR REQUEST...',
+                  'WELCOME',
                   style: TextStyle(
                     color: Color(0xFF846f52),
-                    fontSize: 30.0,
+                    fontSize: 80.0,
                     fontFamily: 'Schyler',
                     fontWeight: FontWeight.w700,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 10.0),
-                Text(
-                  'We will notify you soon once your request has been approved!',
-                  style: TextStyle(
-                    color: Color(0xFF846f52),
-                    fontSize: 20.0,
-                    fontFamily: 'Schyler',
-                    fontWeight: FontWeight.w300,
-                  ),
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),
             ListView(
               padding: EdgeInsets.symmetric(horizontal: 40.0),
               children: <Widget>[
-                SizedBox(height: 90.0),
                 Container(
                   padding:
                       EdgeInsets.symmetric(vertical: 30.0, horizontal: 30.0),
-                  margin: EdgeInsets.symmetric(vertical: 250.0),
+                  margin: EdgeInsets.symmetric(vertical: 280.0),
                   decoration: BoxDecoration(
                     border: Border(
                       top: BorderSide(width: 3.0, color: Color(0xFF968266)),
@@ -87,7 +77,7 @@ class ForthRoute extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        '''R E M I N D E R S :''',
+                        '''eRequest IS AN APPLICATION WE CAN USE TO REQUEST CERTIFICATES AND CLEARANCES FROM THE COMFORT OF OUR HOME. TO BEGIN, PRESS BUTTON BELOW.''',
                         style: TextStyle(
                             fontSize: 18,
                             color: Color(0xFF6f634f),
@@ -97,6 +87,63 @@ class ForthRoute extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+              ],
+            ),
+            ListView(
+              padding: EdgeInsets.all(9),
+              children: <Widget>[
+                SizedBox(height: 650.0),
+                RaisedButton(
+                  textColor: Colors.white,
+                  color: Colors.red,
+                  child: Text(
+                    'SEND REQUEST',
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        fontFamily: 'Helvetica',
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Request()),
+                    );
+                  },
+                ),
+                RaisedButton(
+                  textColor: Colors.white,
+                  color: Colors.green,
+                  child: Text(
+                    'REQUEST STATUS',
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        fontFamily: 'Helvetica',
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RequestStat()),
+                    );
+                  },
+                ),
+                RaisedButton(
+                  textColor: Colors.white,
+                  color: Colors.black,
+                  child: Text(
+                    'HELP | GUIDE',
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        fontFamily: 'Helvetica',
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HoP()),
+                    );
+                  },
                 ),
               ],
             ),

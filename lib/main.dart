@@ -1,4 +1,4 @@
-import 'package:eREQUEST/SecondRoute.dart';
+import 'package:eREQUEST/WelcomePage.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SecondRoute()),
+                        MaterialPageRoute(builder: (context) => WelcomePage()),
                       );
                     }),
                 SizedBox(height: 5.0),
