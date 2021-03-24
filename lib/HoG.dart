@@ -21,8 +21,8 @@ class HoP extends StatelessWidget {
                   stops: [0.0, 0.4, 0.9],
                   colors: [
                     Color(0xFF968266),
-                    Color(0xFFb6a480),
-                    Color(0xFFcfc493),
+                    //Color(0xFFb6a480),
+                    //Color(0xFFcfc493),
                   ],
                 ),
               ),

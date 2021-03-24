@@ -37,8 +37,8 @@ class _ThirdRouteState extends State<ThirdRoute> {
                   stops: [0.0, 0.4, 0.9],
                   colors: [
                     Color(0xFF968266),
-                    Color(0xFFb6a480),
-                    Color(0xFFcfc493),
+                    //Color(0xFFb6a480),
+                    //Color(0xFFcfc493),
                   ],
                 ),
               ),
@@ -194,10 +194,10 @@ class _ThirdRouteState extends State<ThirdRoute> {
                               keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.account_circle,
+                                  Icons.assignment_turned_in,
                                   color: Color(0xFFb6a480),
                                 ),
-                                hintText: "Select Transaction",
+                                hintText: "Transaction",
                                 hintStyle: TextStyle(
                                     color: Color(0xFF6f7072),
                                     fontSize: 15,
