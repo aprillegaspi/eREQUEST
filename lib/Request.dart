@@ -1,4 +1,4 @@
-import 'package:eREQUEST/Feedback.dart';
+//import 'package:eREQUEST/Feedback.dart';
 import 'package:flutter/material.dart';
 
 class Request extends StatefulWidget {
@@ -11,15 +11,25 @@ class _RequestState extends State<Request> {
   TextEditingController middleNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController nicknameController = TextEditingController();
-  TextEditingController bdayController = TextEditingController();
+  TextEditingController birthPlaceController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController contactController = TextEditingController();
-  TextEditingController datebirthController = TextEditingController();
-  TextEditingController civilstatController = TextEditingController();
+  TextEditingController dateBirthController = TextEditingController();
+  TextEditingController civilStatController = TextEditingController();
   TextEditingController purposeController = TextEditingController();
-  TextEditingController yrsresidencyController = TextEditingController();
+  TextEditingController yrsResidencyController = TextEditingController();
 
+  var _formKey = GlobalKey<FormState>();
+  var isLoading = false;
   bool _isLoading = false;
+
+  void submit() {
+    final isValid = _formKey.currentState.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState.save();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,240 +86,317 @@ class _RequestState extends State<Request> {
                         borderRadius: BorderRadius.circular(15)),
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          // name
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: firstNameController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Firstname",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //middlename
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: middleNameController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Middlename",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //Lastname
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: lastNameController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Lastname",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          // nick name
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: nicknameController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.account_circle,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Nickname",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          // birthday
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: bdayController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.calendar_today,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Birthday",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //Address
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: addressController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.add_location,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Address",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //date of birth
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: datebirthController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.add_location,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Date of birth",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //civil status
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: civilstatController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.add_location,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Civil Status",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //Contact
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: contactController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.mobile_screen_share,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Contact No",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //Purpose
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: purposeController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.business,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Purpose",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          //years of residency
-                          TextField(
-                            style: TextStyle(color: Color(0xFF000000)),
-                            controller: yrsresidencyController,
-                            cursorColor: Color(0xFF9b9b9b),
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.comment,
-                                color: Color(0xFFb6a480),
-                              ),
-                              hintText: "Years of residency",
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF6f7072),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                          // submit Button
-                          Padding(
-                            padding: EdgeInsets.all(2.0),
-                            child: FlatButton(
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 8, bottom: 8, left: 10, right: 10),
-                                child: Text(
-                                  _isLoading ? 'Submitting...' : 'Submit',
-                                  textDirection: TextDirection.ltr,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15.0,
-                                    decoration: TextDecoration.none,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            // name
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: firstNameController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Color(0xFFb6a480),
                                 ),
+                                hintText: "Enter your firstname",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
                               ),
-                              color: Color(0xFF46505e),
-                              disabledColor: Color(0xFF846f52),
-                              shape: new RoundedRectangleBorder(
-                                  borderRadius:
-                                      new BorderRadius.circular(20.0)),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => FeedBack()),
-                                );
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
                               },
                             ),
-                          ),
-                        ],
+
+                            //middlename
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: middleNameController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your middlename",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            //Lastname
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: lastNameController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your lastname",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            // nick name
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: nicknameController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.account_circle,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your nickname",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            // contact
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: contactController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.mobile_screen_share,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your contact Number",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            //Address
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: addressController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.add_location,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your address",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            //date of birth
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: dateBirthController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.calendar_today,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your date of birth",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            // birth place
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: birthPlaceController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.place_outlined,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your birth place",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            //civil status
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: civilStatController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.people_alt,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your civil status",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            //Purpose
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: purposeController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.receipt,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter your purpose",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            //years of residency
+                            TextFormField(
+                              style: TextStyle(color: Color(0xFF000000)),
+                              controller: yrsResidencyController,
+                              cursorColor: Color(0xFF9b9b9b),
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.house,
+                                  color: Color(0xFFb6a480),
+                                ),
+                                hintText: "Enter years of residency",
+                                hintStyle: TextStyle(
+                                    color: Color(0xFF6f7072),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return '* Required!';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            // submit Button
+                            Padding(
+                              padding: EdgeInsets.all(2.0),
+                              child: TextButton(
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 5, bottom: 5, left: 10, right: 10),
+                                  child: Text(
+                                    _isLoading ? 'Submitting...' : 'Submit',
+                                    textDirection: TextDirection.ltr,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+
+                                onPressed: () => submit(),
+                                style: TextButton.styleFrom(
+                                  backgroundColor: Color(0xFFb6a480),
+                                ),
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //       builder: (context) => FeedBack()),
+                                // );
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -322,27 +409,3 @@ class _RequestState extends State<Request> {
     );
   }
 }
-// Padding(
-//                               padding: EdgeInsets.all(2.0),
-//                               child: FlatButton(
-//                                   child: Padding(
-//                                     padding: EdgeInsets.only(
-//                                         top: 8, bottom: 8, left: 10, right: 10),
-//                                     child: Text(
-//                                       _isLoading ? 'Submitting...' : 'Submit',
-//                                       textDirection: TextDirection.ltr,
-//                                       style: TextStyle(
-//                                         color: Colors.white,
-//                                         fontSize: 15.0,
-//                                         decoration: TextDecoration.none,
-//                                         fontWeight: FontWeight.w500,
-//                                       ),
-//                                     ),
-//                                   ),
-//                                   color: Colors.blueAccent,
-//                                   disabledColor: Color(0xFF846f52),
-//                                   shape: new RoundedRectangleBorder(
-//                                       borderRadius:
-//                                           new BorderRadius.circular(20.0)),
-//                                   onPressed: _isLoading ? null : _handleSubmit),
-//                             ),

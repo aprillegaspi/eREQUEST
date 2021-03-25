@@ -1,4 +1,4 @@
-import 'package:eREQUEST/main.dart';
+import 'package:erequest_app/main.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

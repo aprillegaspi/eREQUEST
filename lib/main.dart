@@ -1,4 +1,4 @@
-import 'package:eREQUEST/WelcomePage.dart';
+import 'package:erequest_app/WelcomePage.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(8),
               children: <Widget>[
                 SizedBox(height: 270.0),
-                FlatButton(
+                TextButton(
                     child: Image.asset(
                       'assets/logo.png',
                       height: 140.0,

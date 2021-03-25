@@ -1,7 +1,7 @@
-import 'package:eREQUEST/HoG.dart';
-import 'package:eREQUEST/RequestStat.dart';
-import 'package:eREQUEST/Request.dart';
-import 'package:eREQUEST/main.dart';
+import 'package:erequest_app/HoG.dart';
+import 'package:erequest_app/RequestStat.dart';
+import 'package:erequest_app/Request.dart';
+import 'package:erequest_app/main.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -94,9 +94,7 @@ class WelcomePage extends StatelessWidget {
               padding: EdgeInsets.all(9),
               children: <Widget>[
                 SizedBox(height: 650.0),
-                RaisedButton(
-                  textColor: Colors.white,
-                  color: Colors.red,
+                TextButton(
                   child: Text(
                     'SEND REQUEST',
                     style: TextStyle(
@@ -110,10 +108,12 @@ class WelcomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Request()),
                     );
                   },
+                  // textColor: Colors.white,
+                  // color: Colors.red,
                 ),
-                RaisedButton(
-                  textColor: Colors.white,
-                  color: Colors.green,
+                TextButton(
+                  // textColor: Colors.white,
+                  // color: Colors.green,
                   child: Text(
                     'REQUEST STATUS',
                     style: TextStyle(
@@ -124,13 +124,13 @@ class WelcomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RequestStat()),
+                      MaterialPageRoute(
+                        builder: (context) => RequestStat(),
+                      ),
                     );
                   },
                 ),
-                RaisedButton(
-                  textColor: Colors.white,
-                  color: Colors.black,
+                TextButton(
                   child: Text(
                     'HELP | GUIDE',
                     style: TextStyle(

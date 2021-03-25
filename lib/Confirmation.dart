@@ -1,4 +1,4 @@
-import 'package:eREQUEST/main.dart';
+import 'package:erequest_app/main.dart';
 import 'package:flutter/material.dart';
 
 TextEditingController nameController = TextEditingController();
@@ -226,7 +226,7 @@ class _ConfirmationState extends State<Confirmation> {
                             // back Button
                             Padding(
                               padding: EdgeInsets.all(2.0),
-                              child: FlatButton(
+                              child: TextButton(
                                 child: Padding(
                                   padding: EdgeInsets.only(
                                       top: 8, bottom: 8, left: 10, right: 10),
@@ -241,11 +241,11 @@ class _ConfirmationState extends State<Confirmation> {
                                     ),
                                   ),
                                 ),
-                                color: Color(0xFF46505e),
-                                disabledColor: Color(0xFF846f52),
-                                shape: new RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(20.0)),
+                                // color: Color(0xFF46505e),
+                                // disabledColor: Color(0xFF846f52),
+                                // shape: RoundedRectangleBorder(
+                                //     borderRadius:
+                                //         new BorderRadius.circular(20.0)),
                                 onPressed: () {
                                   Navigator.push(
                                     context,

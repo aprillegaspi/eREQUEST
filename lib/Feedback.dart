@@ -1,5 +1,5 @@
-import 'package:eREQUEST/WelcomePage.dart';
-import 'package:eREQUEST/main.dart';
+import 'package:erequest_app/WelcomePage.dart';
+import 'package:erequest_app/main.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
